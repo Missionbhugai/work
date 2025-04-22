@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mission Bhugai</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* Animated Gradient BG */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      background: linear-gradient(-45deg, #1e3c72, #2a5298, #16222a, #3a6186);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      overflow-x: hidden;
+    }
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(10px);
+      padding: 10px;
+      z-index: 100;
+    }
+    nav a {
+      margin: 0 10px;
+      padding: 10px 20px;
+      background: #1db954;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: transform 0.2s, background 0.2s;
+    }
+    nav a:hover {
+      transform: scale(1.1);
+      background: #17a44c;
+    }
+    section { display: none; padding: 40px; }
+    section.active { display: block; animation: fadeIn 0.8s ease both; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px);} to { opacity:1; transform: translateY(0);} }
+
+    /* Spotify-like Music */
+    .track-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap: 20px; }
+    .track { background: rgba(0,0,0,0.6); padding: 15px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; cursor: pointer; transition: background 0.3s, transform 0.2s; }
+    .track:hover { background: rgba(0,0,0,0.8); transform: translateY(-5px); }
+    .track img { width: 100%; border-radius: 6px; }
+    .track-title { margin: 10px 0 5px; font-weight: bold; text-align: center; }
+    .player-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.9); display: flex; align-items: center; padding: 10px 20px; backdrop-filter: blur(10px); }
+    #audio-player { flex: 1; margin: 0 20px; }
+
+    /* YouTube-like Videos */
+    #videos .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 20px; }
+    .video-card { position: relative; background: #000; border-radius: 8px; overflow: hidden; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.5); transition: transform 0.2s; }
+    .video-card:hover { transform: scale(1.03); }
+    .video-thumb { width: 100%; display: block; }
+    .play-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 3em; color: rgba(255,255,255,0.8); }
+    .video-title { padding: 10px; background: rgba(0,0,0,0.7); text-align: center; }
+    #video-player { width: 100%; max-width: 800px; display: block; margin: 20px auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+
+    /* Lyrics & Novel Professional Cards */
+    .content-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 20px; }
+    .sidebar { background: rgba(0,0,0,0.6); padding: 20px; border-radius: 8px; max-height: 600px; overflow-y: auto; }
+    .sidebar li { margin-bottom: 15px; cursor: pointer; transition: color 0.2s; }
+    .sidebar li:hover { color: #1db954; }
+    .display-card { background: rgba(0,0,0,0.6); padding: 20px; border-radius: 8px; max-height: 600px; overflow-y: auto; white-space: pre-wrap; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#" data-target="about">About</a>
+    <a href="#" data-target="music">Music</a>
+    <a href="#" data-target="lyrics">Lyrics</a>
+    <a href="#" data-target="videos">Videos</a>
+    <a href="#" data-target="novel">Novel</a>
+  </nav>
+
+  <section id="about" class="active">
+    <h1>About Me</h1>
+<h2 style="text-align: center;">Mission Bhugai</h2>
+    <p>Hello! I’m Mission Bhugai, a 20‑year‑old civil engineering student at Western Regional Campus (Pachimanchal Campus), Pokhara.</p>
+    <p>By day I’m immersed in structural design and site planning; by night I’m a songwriter, producer and vocalist crafting original tracks. I also direct and edit my own videos, pen novels and collaborate behind the scenes with fellow artists—offering production, songwriting or vocal contributions.</p>
+    <p>This personal website is my creative hub: a place to explore my music, videos, lyrics and writing. If you’re an artist looking to team up or would like to license my work royalty‑free, drop me a line at <strong>missionbhugai13@gmail.com</strong>. For all other inquiries or just to say hello, stay tuned here for updates.</p>
+    <p>I built this site to share every new project and connect directly with fans and collaborators—thanks for stopping by!</p>
+    <div class="about-photos">
+<p>
+<img src="C:\Users\HP\Desktop\website\Photos\1C6B00BA-3A16-4B7B-814B-7BEEA9D1FEA0.jpeg" alt="Photo 1" style="width:200px; margin-right:10px;">
+<img src="C:\Users\HP\Desktop\website\Photos\IMG-20d3190ee151910cf6e53ff9136cd47e-V_Original_Original.JPG" alt="Photo 2" style="width:200px;">
+<img src="C:\Users\HP\Desktop\website\Photos\IMG_1139_Original.JPG" alt="Photo 2" style="width:200px;">
+<img src="C:\Users\HP\Desktop\website\Photos\Screenshot_20230419-130252_Facebook Copy_Original.JPG" alt="Photo 2" style="width:200px;">
+</P>
+
+    </div>
+    <div class="social-icons">
+      <a href="https://facebook.com/missionbhugai" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://x.com/missionbhugai" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://instagram.com/missionbhugai" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://youtube.com/@Missionbhuga_official" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+  </section>
+
+  <section id="music">
+    <h1>Music</h1>
+    <div class="track-list">
+      <div class="track" data-src="C:\Users\HP\Desktop\website\Photos\गजल आख-Mission Bhugai ( RAW version ).mp3" data-title="गाजलु आँखा">
+        <img src="C:\Users\HP\Desktop\website\Photos\Screenshot 2025-04-22 230142.png" alt="गाजलु आँखा">
+        <div class="track-title">गाजलु आँखा</div>
+      </div>
+      <div class="track" data-src="C:\Users\HP\Desktop\website\Photos\Mission Bhugai - On her own.mp3" data-title="On her Own">
+        <img src="C:\Users\HP\Desktop\website\Photos\Screenshot 2025-04-22 230053.png" alt="On her Own">
+        <div class="track-title">On her Own</div>
+      </div>
+      <div class="track" data-src="C:\Users\HP\Desktop\website\Photos\She and flew (official ).mp3" data-title="She and Flew">
+        <img src="C:\Users\HP\Desktop\website\Photos\Screenshot 2025-04-22 230216.png" alt="She and Flew">
+        <div class="track-title">She and Flew</div>
+      </div>
+      <div class="track" data-src="C:\Users\HP\Desktop\website\Photos\Little highway official.mp3" data-title="Little Highway">
+        <img src="C:\Users\HP\Desktop\website\Photos\Screenshot 2025-04-22 230158.png" alt="Little Highway">
+        <div class="track-title">Little Highway</div>
+      </div>
+    </div>
+    <div class="player-bar">αγ
+      <i class="fas fa-music"></i>
+      <audio id="audio-player" controls></audio>
+      <div id="track-title" style="margin-left:10px;"></div>
+    </div>
+  </section>
+
+  <section id="lyrics">
+    <h1>Lyrics</h1>
+    <div class="content-grid">
+      <ul class="sidebar item-list">
+        <li data-lyric="Let me tell you the story
+How I leave the world
+And I am waiting for this
+Just to let time get me old
+Life and half of trade
+Now it’s time for a break
+With the queen that I get after a thousand pray
+
+ She has oh-blue eyes
+Her smile oh true cute
+That what drags my mind
+Just like the Kathmandu
+
+I never hesitate
+Taking to the person that I know
+but my head started to shack
+when she gets me too close
+
+we never purpose
+but we were together
+we never broke up
+just to live forever
+the more I look at her
+the more beautiful she gets
+I don’t know what this for
+ But yes, that’s sound perfect
+
+ We will be an example for the world
+We will teach the definition of love
+Beside those fancy clothes
+Beside those fancy clubs
+
+From you and I, we become we
+We spend a lot of time and have great memory
+We have fought a lot but no one has to say sorry
+It is true and nothing is necessary
+
+When there is the sand of alone
+You become the wind and fly it way
+If I am drying the river
+You become a rain and fill it, oh yeah 
+If you are the cloud 
+Holding pain as a water 
+Then I will be a water droplet and
+Fall down to make your pain lighter
+
+Let me tell you the story
+How I leave the world
+And I am waiting for this
+Just to let time get me old
+Life and half of trade
+Now it is time for a break
+With the queen that I get after a thousand pray
+
+
+ 
+
+She knows me more than I
+She holds me close too tight
+There a love in the fight
+I cannot believe she is my wife
+New candle and perfect night
+She looks so beautiful in red and white
+
+She has oh-blue eyes
+Her smile oh true cute
+That is what drags my mind
+We are living in the dream
+That we built
+
+
+Once we are 2
+Now we are 5
+They got your eyes
+They got my voice to tune
+
+When there is the sand of alone
+You become the wind and fly it way
+If I am drying the river
+You become a rain and fill it, oh yeah 
+If you are the cloud 
+Holding pain as a water 
+Then I will be a water droplet and
+Fall down to make your pain lighter">She and Flew</li>
+
+        <li data-lyric="गाजलु आँखा खुशी उसको अनुहार.
+जे गरे नि सुहाउँछ कस्तो चमत्कार.
+सूर्यजस्तो चम्किलो अनुहार.
+टोलाई राख्छु उसको यादमा.
+किन हो म बारम्बार.
+हिँडाइ कम्मर नाई नाई रातो सारी.
+हैन क्या हो झरो क्या हो आकाशको परि.
+सोधु की क्या हो हात कामी कामी
+मेरो सपनाको रानी.
+किन तिमी यति साह्रै राम्री.
+
+हे काली त्यसरी.
+न हेर मलाई घरी घरी.
+हे काली नक्कली.
+माया बस्ला है अहिले फेरि.
+
+अँध्यारो यो रातमा.
+she kiss me took me to the past ma
+कुरेकी रहिछे.
+मैले भन्छु कि भन्ने आशमा.
+
+त्यसपछि सुरु भयो. हाम्रो मायाको कहानी.
+म राजा अनि ऊ, मेरो रानी.
+हामी बादल हाम्रो माया पानी.
+रहनेछ अन्तिम साससम्म पनि.
+
+हिँडाइ कम्मर नाई नाई रातो सारी.
+हैन क्या हो झरो क्या हो आकाशको परि.
+सोधु की क्या हो हात कामी कामी
+मेरो सपनाको रानी.
+किन तिमी यति साह्रै राम्री.गाजलु आँखा खुशी उसको अनुहार.
+जे गरे नि सुहाउँछ कस्तो चमत्कार.
+सूर्यजस्तो चम्किलो अनुहार.
+टोलाई राख्छु उसको यादमा.
+किन हो म बारम्बार.
+हिँडाइ कम्मर नाई नाई रातो सारी.
+हैन क्या हो झरो क्या हो आकाशको परि.
+सोधु की क्या हो हात कामी कामी
+मेरो सपनाको रानी.
+किन तिमी यति साह्रै राम्री.
+
+हे काली त्यसरी.
+न हेर मलाई घरी घरी.
+हे काली नक्कली.
+माया बस्ला है अहिले फेरि.
+
+अँध्यारो यो रातमा.
+she kiss me took me to the past ma
+कुरेकी रहिछे.
+मैले भन्छु कि भन्ने आशमा.
+
+त्यसपछि सुरु भयो. हाम्रो मायाको कहानी.
+म राजा अनि ऊ, मेरो रानी.
+हामी बादल हाम्रो माया पानी.
+रहनेछ अन्तिम साससम्म पनि.
+
+हिँडाइ कम्मर नाई नाई रातो सारी.
+हैन क्या हो झरो क्या हो आकाशको परि.
+सोधु की क्या हो हात कामी कामी
+मेरो सपनाको रानी.
+किन तिमी यति साह्रै राम्री.">गाजलु आँखा</li>
+       <li data-lyric=" There was loud music playing, 
+There was a crowd in front of me,
+ But I heard her whisper too.
+
+I don’t know what this is for, 
+But I fall in love with her more and more.
+ I look into her eyes and I freeze.
+
+I try to talk like I don’t know, 
+But I could write a song 
+With the words she spoke when we first met.
+
+How I write and how I see
+Is totally different from what I dream
+When she holds me in her arms.
+
+She is beauty on her own, 
+Her eyes filled with a crowded zone, 
+But I can see only me in her eyes.
+
+I do’nt feel ashamed telling the world
+I am like a small kid in front of her, 
+She cares for me more than I do.
+I built a boat and I sank in her heart, 
+I see a rod tearing apart, 
+But the wind will never split us in half.
+
+I hope this is the loop, 
+She and I forever in this roof, 
+Where I built the walls and she built a place to live.
+
+How I write and how I see 
+Is totally different from what I dream, 
+When she holds me in her arms.
+
+She is beauty on her own, 
+Her eyes filled with a crowded zone, 
+But I can see only me in her eyes.">On her own</li>
+            <li data-lyric="I know she never will be mine,
+If that's true, she will never find
+True love like me,
+Locked in a case, acting to be free.
+
+Metaphorical words I use,
+Highway that I choose,
+Is only where I can drive,
+Two different hearts but get that vibe.
+
+Short, sweet tale of her hair,
+Never seen me in real,
+But chat we have,
+Oh God, I am living my life,
+Dreaming about you,
+Waking up with love bite.
+
+Her heart and my life,
+Its beat gets immunized,
+Every pain that I have,
+Tears are gone, now only smile,
+Oh little Highway,
+You are my little Highway.
+
+She doesn't know who I am or was,
+She runs every time I try to get close,
+Every time when I see her with someone else,
+My hand starts to shake like my heart's frozen.
+
+Her memories don't let me sleep,
+Her dream doesn't let me wake,
+She is everything I believe,
+It's all true, I never want to fake.
+
+Metaphorical words I use,
+Highway that I choose,
+Is only where I can drive,
+Two different hearts but get that vibe.
+
+Short, sweet tale of her hair,
+Never seen me in real,
+But chat we have,
+Oh God, I am living my life,
+Dreaming about you,
+Waking up with love bite.
+
+There is the crowd,
+That's running after me,
+Ignore them all for you,
+Just like you did to me.
+
+No one ignores me like you,
+Now it's the last chat we're going to have,
+If you don't want this to be it,
+Reply something in this song.">Little highway</li>
+        <li data-lyric="I know she never will be mine,...">Little highway</li>
+      </ul>
+      <div class="display-card" id="lyric-display"></div>
+    </div>
+  </section>
+
+  <section id="videos">
+    <h1>Videos</h1>
+    <div class="gallery">
+      <div class="video-card" data-src="C:\Users\HP\Desktop\website\Photos\Mission Bhugai - On her own.mp4">
+        <img class="video-thumb" src="C:\Users\HP\Desktop\website\Photos\Screenshot 2025-04-22 230053.png" alt="On her Own">
+        <i class="fas fa-play play-icon"></i>
+        <div class="video-title">On her Own</div>
+      </div>
+      <div class="video-card" data-src="C:\Users\HP\Desktop\website\Photos\गजल आख-Mission Bhugai ( RAW version ).mp4">
+        <img class="video-thumb" src="C:\Users\HP\Desktop\website\Photos\Screenshot 2025-04-22 230142.png" alt="गाजलु आँखा">
+        <i class="fas fa-play play-icon"></i>
+        <div class="video-title">गाजलु आँखा</div>
+      </div>
+      <div class="video-card" data-src="C:\Users\HP\Desktop\website\Photos\Little highway official.mp4">
+        <img class="video-thumb" src="C:\Users\HP\Desktop\website\Photos\Screenshot 2025-04-22 230158.png" alt="Little Highway">
+        <i class="fas fa-play play-icon"></i>
+        <div class="video-title">Little Highway</div>
+      </div>
+      <div class="video-card" data-src="C:\Users\HP\Desktop\website\Photos\She and flew (official ).mp4">
+        <img class="video-thumb" src="C:\Users\HP\Desktop\website\Photos\Screenshot 2025-04-22 230216.png" alt="She and Flew">
+        <i class="fas fa-play play-icon"></i>
+        <div class="video-title">She and Flew</div>
+      </div>
+    </div>
+    <video id="video-player" controls></video>
+  </section>
+
+  <section id="novel">
+    <h1>Novel Excerpts</h1>
+    <div class="content-grid">
+      <ul class="sidebar item-list">
+        <li data-text=" CHAPTER 1 :  “ The Dark Night “
+
+20 years ago, during winter, dark clouds covered the sky above the city. Far from the city, there stood an old, eerie house with a red light glowing from its side. Nearby, a basketball court lay under the dim sky, where two boys were playing.
+
+One of the boys laughed and said, “Oh, can you catch me? I just won the game!”
+
+The other smirked. “Just one more chance. If I get the ball, you’re going to lose.”
+
+They continued playing, their laughter echoing through the cold air. One of them jumped and threw the basketball toward the hoop, but something strange happened—the ball got stuck in the net.
+
+The boy frowned. “What happened? Why is the ball stuck?”
+
+They stared at the net, confused. It looked perfectly fine. The weather was cold, but not freezing enough to make the net stiff.
+
+Curious, one of the boys jumped to retrieve the ball. As soon as he landed, his feet slipped, and he crashed onto the ground.
+
+“Whoa! How did the ground freeze so fast?” he muttered, rubbing his hands against the cold surface.
+
+His friend’s expression darkened. “This isn’t right. We should go home.”
+
+“Wait,” the boy insisted. “We need to figure this out.”
+
+Just as they were about to leave, a sudden flickering light appeared near the old house beside the court.
+
+Inside the house, three people lived—a mother, a father, and their son. The mother sensed something was wrong.
+
+“What’s happening?” she asked, her voice tense.
+
+The father sighed heavily. “It’s the problem we feared. We have to save the boy.”
+
+The mother’s face turned pale. “The boy…?”
+
+Turning to her son, she crouched down and gripped his shoulders. “Run. Run as far as you can.”
+
+The boy hesitated, but his mother pushed him toward the door. “Now!”
+
+As the boy bolted outside, something dark slithered into the house—an ominous shadow creeping through the doorway. The father stepped forward, his fists clenched.
+
+“What is that?” he whispered.
+
+Before he could react, a bright light suddenly struck him. His body stiffened, and pain flashed across his face.
+
+“No!” the mother screamed. She grabbed a small vial from her pocket and flung a glowing liquid at the dark figure, chanting an incantation. A powerful force sent the shadow flying backward.
+
+But it was too late. The father collapsed to the floor. Blood trickled from his mouth as he struggled to speak.
+
+“I’m sorry… It’s my fault,” he gasped. “Because of me, we’re in danger. You must protect the boy… Promise me.”
+
+Tears welled in the mother’s eyes as she held his trembling hand.
+
+“I’ll always be with you,” the father whispered before his body went still.
+
+“Run!” the mother yelled, grabbing her son and sprinting out of the house.
+
+The shadow, now enraged, followed them. As they ran, the mother turned and threw another spell, her voice ringing through the air.
+
+“Stop! Stop!”
+
+The darkness wavered, retreating for a moment.
+
+The boy, gasping for breath, looked up at his mother. But before she could reassure him, something loomed ahead—a dark figure standing in their path. Its face was hidden in shadow, but its glowing red eyes pierced through the night.
+
+The camera zoomed in on its eyes.
+
+Then everything blurred to black.
+
+Present Day
+
+The scene opens in a kitchen. Vegetables are cooking, and the sound of birds chirping fills the house. Upstairs, a 25-year-old boy lies in bed, tossing and turning. Sweat drips from his forehead as if he’s trapped in a nightmare. His breathing is heavy, his body restless.
+
+In his dream, flashes of memory resurface. His father’s voice echoes:
+“What is that?”
+His mother’s desperate cries: “Run! Run! Run!”
+Then—those eyes. Red, glowing, soulless.
+
+Christopher jolts awake, gasping for air. His hands tremble as he wipes the sweat off his face.
+
+From downstairs, a warm voice calls out, “Boy, come down!”
+
+“Coming!” he replies, shaking off the fear lingering from his dream.
+
+Christopher lives with his grandparents, who cherish him more than anything. His grandmother is in the kitchen, preparing breakfast, while his grandfather sits at the dining table, reading the newspaper.
+
+As Christopher descends the stairs, his grandfather greets him with a smile.
+“Good morning, my boy. You’re up!”
+
+Christopher forces a smile but doesn’t respond right away. Something about his grandfather’s warm words doesn’t sit right. His body feels tense, his mind heavy.
+
+Sensing something is off, his grandfather lowers the newspaper. “Christopher, what’s wrong?”
+
+Christopher hesitates, then sits beside him. “I had that dream again.”
+
+His grandfather sighs. “Again? It’s just a dream, my boy. Let it go. Dreams don’t mean anything—they don’t control your life. You have to move on.”
+
+Christopher shakes his head. “I don’t have control over this. It keeps happening. Again and again. And now, I feel like… I was there. Like I was part of it.”
+
+His grandfather’s expression darkens. Slowly, he reaches for a framed photograph on the table and hands it to Christopher. “These were your parents,” he says.
+
+Christopher stares at the photo. His parents look so happy, so proud. His father, strong and brave. His mother, smiling warmly.
+
+His grandfather’s voice turns distant. “I can never forget that night. You, your mother, and your father were on your way to a wedding. Then—the accident. The crash took their lives, but you… you survived. I held you all night. Your father, my son… he was gone. I was hurt, too. For a year, I couldn’t function, lost in grief. Your grandmother brought me back. And now, I have you. You are my world. I’ll do anything to protect you.”
+
+Christopher looks up. His grandfather is smiling, but something about his words doesn’t feel right. There’s a weight in his voice—a hesitation.
+
+He’s lying.
+
+Christopher doesn’t know it yet, but everything he believes about his parents’ death is a lie.
+
+His grandmother doesn’t know the truth either. She was in a coma when it happened, lost in unconsciousness while everyone told her the same story: It was an accident.
+
+The only one who knows the real truth… is his grandfather.
+
+And one day, that truth will have to be revealed.
+
+“Hey Christopher, come out! Let’s go play!”
+
+A few boys stood outside, calling for him to join their soccer game.
+
+Christopher turned to his grandmother. “Grandma, can I go play?”
+
+She smiled warmly. “Yes, my boy, you can. And you will win the game.” She playfully tapped his arm, a little gesture of encouragement.
+
+Christopher grinned, grabbing his bag. “I love you, Grandma. I love you, Grandpa!” he called out as he ran outside to join his friends.
+
+His grandfather watched him leave, then turned to his wife. “I think I’ll rest in our bedroom for a while. I’ve been feeling a little tired this morning.”
+
+His wife nodded. “Alright, honey. I’ll call you when dinner’s ready.”
+
+“Thanks, my love,” he said, giving her a tired smile before heading to the bedroom.
+
+Once inside, he sat on the bed, holding a photograph in his hands. It was a picture of five people—himself, his wife, Christopher, his son, and his daughter-in-law.
+
+But then, slowly, he rolled the edge of the picture back.
+
+Hidden beneath it was another person. A man.
+
+His face was mysterious to anyone else—but not to Christopher’s grandfather.
+
+He knew exactly who he was.
+
+A tear slipped from his eye as he stared at the hidden figure.
+
+Who was this man?
+
+And why had he been erased from the picture?
+
+The mystery was only beginning.
+
+A flashback played in the grandfather’s mind.
+
+He stood outside the window, watching the horrors unfold inside that house—the same house where the flashing light had appeared that night.
+
+He saw it all.
+
+He saw how the dark entity had taken his son. How his daughter-in-law had desperately tried to run with Christopher in her arms. And how, even though she had managed to save her son, she couldn’t save herself.
+
+The dark shadow had killed her.
+
+But it had failed to kill Christopher.
+
+When the entity finally vanished, the grandfather rushed inside, his heart pounding with fear. He ran straight to his grandson, crying out in anguish.
+
+“My son… my son!” he sobbed, his voice breaking.
+
+He, barely breathing, looked up at him. His small, weak voice whispered, “Dad… I love you. I love you… I told you I would love you till the end, and now I’m proving it.”
+
+His breaths were slowing, his strength fading.
+
+“I love him too…” he whispered.
+
+And then silence.
+
+Who was “him”?
+
+Who was he referring to?
+
+It was a mystery even now.
+
+The grandfather, shaken and broken, turned to Christopher’s mother. She lay on the cold ground, her lifeless eyes open, glowing red. Her body was bruised, and the sight of her sent chills through him.
+
+He couldn’t stay there any longer.
+
+Scooping up his grandson, he ran—ran far away from that cursed house, from that city, from everything that had happened that night.
+
+He left it all behind.
+
+And in a new city, he started over, raising Christopher as his own.
+
+But deep inside, he lived with a fear that never faded.
+
+What if it happened again?
+
+He  wiped his tears, hiding the photo under the bed before leaving the room.
+
+The camera now shifts to the window.
+
+Outside, a terrifying figure stood, watching.
+
+His face was shrouded in darkness, his features hidden by shadows—except for his eyes. Blood-red, glowing in the night.
+
+And then, as if the darkness itself swallowed him, he vanished.
+
+But he didn’t leave.
+
+Instead, he crept into the house, clinging to the ceiling like a sinister entity, hiding in the corner of the room in the most unnatural, horrifying way.
+
+—
+
+Christopher returned from playing, drenched in sweat.
+
+His grandmother saw him and smiled. “Take a shower, dear,” she said gently.
+
+He nodded and went to freshen up.
+
+Meanwhile, his grandfather was outside in the garden, lost in thought.
+
+As Christopher stepped out of the shower, drying his hair, something caught his eye.
+
+Something… unnatural.
+
+There, on the ceiling.
+
+A dark figure. A shadow with no face—only piercing red eyes.
+
+His breath caught in his throat.
+
+It was the same thing from his nightmares.
+
+He screamed.
+
+“GRANDFATHER!”
+
+His grandfather rushed into the room. The moment he saw the creature, his expression hardened, turning to one of grim determination.
+
+Without hesitation, he reached into his pocket, pulling out a ring. Sliding it onto his finger, he pointed directly at the shadow and chanted something under his breath.
+
+A surge of magical energy burst from his hand, shooting toward the entity like a beam of light.
+
+The dark shadow responded instantly.
+
+It wasn’t just any entity—it knew magic too.
+
+A battle of spells erupted between them, magic colliding in flashes of brilliant light and deep darkness. The room trembled with the force of their powers.
+
+But the grandfather knew he couldn’t win.
+
+He turned toward Christopher, desperation in his eyes.
+
+Pointing a trembling finger at his grandson, he cast another spell.
+
+Before Christopher could react, his body was enveloped in light—
+
+And in the next second, he was gone.
+
+Vanished.
+
+The shadow let out an enraged howl before retreating, fading into nothingness as a final burst of light exploded in the room.
+
+—
+
+When the dust settled, the house was in ruins.
+
+Furniture lay shattered, walls cracked, and the air smelled of burned magic.
+
+The grandfather stood there, panting, shaken to his core.
+
+His wife ran to him, her face filled with confusion and fear.
+
+“What just happened?” she demanded. “Where is Christopher?”
+
+Tears welled in the old man’s eyes as he finally told her everything.
+
+The truth.
+
+The truth he had hidden for decades.
+
+As she listened, her body trembled, her lips quivering. Then, unable to hold it in any longer, she broke down, sobbing.
+
+He reached under the bed and pulled out the hidden photo—the one he had been keeping all these years.
+
+He handed it to her.
+
+She looked at it.
+
+Her hands shook.
+
+She recognized him.
+
+Tears rolled down her face. “He is… he is…”
+
+Her voice broke before she could finish.
+
+The grandfather nodded solemnly. “Yes.”
+
+A heavy silence fell between them.
+
+Then, determination filled her eyes.
+
+“We have to go,” she whispered. “We have to find Christopher.”
+
+Without another word, they ran from the house, searching every place they could think of.
+
+Days passed. Then a week.
+
+But Christopher was nowhere to be found.
+
+They were broken, lost, and hopeless.
+
+Their house remained untouched, left in ruins. It was as if a bomb had gone off, yet they had no energy to fix it.
+
+All that mattered was Christopher.
+
+Where had he gone?
+
+What had happened to him?
+
+To be continued…
+">Root of life = Chapter 1</li>
+        <li data-text=" “ CHRISTIPHER AND ANFLY “
+
+Just like falling through the magical tunnel, it was too curious and too mysterious. He could see everything he had gone through in his life. It was just like a flashback rolling through the tunnel. He could see himself as a kid. He could see his father, grandfather, and grandmother as he moved up through the tunnel. He was seeing everything he had experienced in his life, just like a television playing his memories.
+
+First, he saw how happy he was with his grandfather and mother. Then he saw how happy he was playing with his friend and how much he enjoyed going to school—everything felt so pure, filled with a sense of happiness.
+
+Now, suddenly, he felt cold. His breathing could be heard, and the whole tunnel turned dark. It was cold enough that the water vapor in his breath froze as soon as he exhaled. He saw a red lamp far ahead and an old house. It looked like something from a dream he used to see again and again.
+
+He heard a scream, and a bright light flashed, making him blind for a while.
+
+After a while, he felt like he was not moving anymore, and he sensed something warm. Slowly, he opened his eyes. Everything was blurry at first, but after a moment, when his vision cleared, he saw a beautiful garden. It looked so serene, almost as if he was in heaven. For a moment, he thought he was dead. He touched himself, but he didn’t feel like a dead person. Yet, at the same time, he felt like he was in heaven.
+
+He realized he was lying on something soft, and suddenly, a tiny creature started screaming, “Get up! Get up!” It was a very small being, shaped somewhat like an ant, but it was female. She looked beautiful, with delicate features, and had wings. The boy suddenly sat up, and the tiny creature flew back slightly.
+
+He looked at her, confused, and asked, “Who are you? Am I… dead?”
+
+The little creature came closer to his face, examined him for a moment, and then said, “You don’t belong here, do you, boy?”
+
+She was small like an ant, but she could fly like an angel. She had legs like a human, and her voice was high-pitched yet commanding. She suddenly screamed and called for her friends. Within moments, many others like her appeared, flying around him, whispering in confusion.
+
+The boy, frightened, leaned back and tried to move away. The creatures surrounded him, but one of them spoke gently, “You don’t have to be afraid, boy. You are safe with us… but you are not safe in this world.”
+
+The boy frowned. “World? Where am I?”
+
+The flying creatures exchanged confused glances. They knew he wasn’t from their world, and people from another world weren’t supposed to be here. One of them asked, “Are your parents still in your world?”
+
+The boy looked down and muttered, “No… they died in an accident. But why are you asking me this? Where am I?”
+
+He was growing more confused, his eyes scanning the strange place around him. Suddenly, the little creature reached out and touched his forehead. The moment she did, she saw all his memories flash before her eyes. She gasped, her expression turning to pure terror.
+
+“You… how can you be here?”
+
+She turned to the others with a horrified look in her eyes. The other creatures froze. “What happened?” one of them asked.
+
+“He is the one… from there,” she whispered, her voice trembling.
+
+The others shivered, their wings fluttering in unease. Then, another figure stepped forward—a creature that seemed to be the leader of the group. His aura was different, powerful. He looked at the boy with deep concern and said, “You cannot go back. You are here now… and you can die here.”
+
+The boy’s heart pounded. “Why? Why can’t I die? What do you mean?”
+
+The leader of the flying creatures motioned to him. “Come with me. You are safe here… but not in this world.”
+
+They led him through a mysterious forest, a place unlike anything he had ever seen. The trees were massive, glowing faintly with strange energy. The entire forest looked alive, filled with different kinds of creatures, plants, and an atmosphere that felt magical. But the boy didn’t believe in magic.
+
+The small creature guided him toward an enormous tree at the heart of the forest. As soon as the leader touched the tree with his staff, the entire tree reacted—it moved as if it were alive. Its massive arms stretched out and wrapped around them, pulling them inside.
+
+And then, suddenly, everything went black.
+
+When the boy opened his eyes again, he found himself in a dream—a dream so vivid, so unreal, yet it explained everything about this world. He saw things he had never believed possible…
+
+In his dream, a deep voice began explaining the story, and he could see everything being described as if it were unfolding before his eyes.
+
+It started like this:
+
+“A very long time ago, there were two worlds—one with magic and one without. They coexisted in harmony, deeply connected to each other. The people of both worlds shared emotions, celebrated happiness together, and mourned each other’s sadness. Everything they did, they did together.
+
+But one day, a man from the magical world unknowingly killed a human. When he did, something strange happened—he gained an immense amount of power. Confused, he studied what had happened and eventually discovered an ancient law. Long before the magical and non-magical worlds separated, when only a few people existed, certain rules had been unknowingly embedded into the system of existence. If a magical being killed a non-magical being, the magical being would receive extraordinary power. Similarly, if a human killed a magical being, the human would gain heightened intelligence and superior logical abilities.
+
+Once the man realized that killing humans granted him power, he began slaughtering them in large numbers. Over time, he became the most powerful being in existence. At first, the two worlds still lived together—many people from both sides wished for peace. But the greed for magic and power corrupted the balance. War broke out.
+
+The most powerful magical being continued killing humans, and as a result, the human population rapidly declined. His strength became so great that he even gained the power to challenge the very inventor of the world itself. He sought to kill the world’s creator and take control of everything, planning to eradicate all humans to absorb their power.
+
+But when he went to kill the inventor, the creator of the world fought back with a magical force unlike anything ever seen. Their battle shook reality itself. In the end, both the creator and the most powerful magical being perished.
+
+Before his death, the inventor made a final decision—he separated the two worlds completely. The humans were given a smaller land, which was called Earth, while the magical beings were given a vast land, named Starrbar-N. The worlds were sealed off from each other, making it impossible for anyone, no matter how powerful, to cross between them.
+
+Peace was restored. To maintain balance, a system was established to regulate the level of power in each world. In the human world, intelligence and logical thinking became the dominant abilities, while in the magical world, people were given varying levels of magical power. Some were born with immense strength, while others had little. But overall, humans became far more intelligent than the magical beings.
+
+However, a few years ago, something unusual happened. A mysterious magical being somehow crossed into the human world—something that was supposed to be impossible. There, he killed a human and gained an extraordinary amount of power.
+
+Not long after, he attacked a highly powerful figure in the magical world—the headmaster of the most prestigious magical school. Although the attacker was eventually captured, he managed to escape just a few hours ago. He returned to the human world, where something even more terrifying occurred.
+
+The headmaster, who was believed to be the strongest being in the magical world, had never been able to travel between the worlds. Yet, this being could.
+
+The headmaster began researching him, trying to understand how he had broken the ancient laws. But before he could find answers, the being killed another human.
+
+And now… he is trying to kill a specific boy.”
+
+The voice paused, then continued.
+
+“I can see it in your eyes. That boy is you.”
+
+The boy’s dream faded into darkness, and suddenly, he woke up.
+
+Standing before him was the headmaster—the same one he had seen in his vision.
+
+The headmaster looked down at him and said, “Ah, so you already know me. I assume you saw me in your dream.”
+
+He sighed, then added, “I will take you to the school. It is the safest place for you right now. If anyone finds out that you are a human, they will fight to kill you… for your power.”
+
+The headmaster took the boy to the magical school, pretending that the boy was from the magical world. He did this in the hope that, despite being human, the boy might still be able to learn magic.
+
+And so, the boy was forced to attend magic classes, beginning his journey in the magical world’s most prestigious school.">Root of life = Chapter 2</li>
+      </ul>
+      <div class="display-card" id="novel-display"></div>
+    </div>
+  </section>
+
+  <script>
+    // Navigation
+    document.querySelectorAll('nav a').forEach(link => link.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+      document.getElementById(link.dataset.target).classList.add('active');
+    }));
+
+    // Music
+    const audio = document.getElementById('audio-player');
+    document.querySelectorAll('#music .track').forEach(t => t.addEventListener('click', () => {
+      audio.src = t.dataset.src;
+      document.getElementById('track-title').textContent = t.dataset.title;
+      audio.play();
+    }));
+
+    // Lyrics & Novel
+    ['lyrics','novel'].forEach(id => {
+      const list = document.querySelector(`#${id} .item-list`);
+      const display = document.getElementById(id === 'lyrics' ? 'lyric-display' : 'novel-display');
+      list.querySelectorAll('li').forEach(li => li.addEventListener('click', () => {
+        display.textContent = id==='lyrics'? li.dataset.lyric: li.dataset.text;
+      }));
+    });
+
+    // Videos
+    const vplayer = document.getElementById('video-player');
+    document.querySelectorAll('.video-card').forEach(vc => vc.addEventListener('click', () => {
+      vplayer.src = vc.dataset.src;
+      vc.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      vplayer.play();
+    }));
+  </script>
+</body>
+</html>
